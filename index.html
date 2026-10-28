@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern TaskFlow &bull; JavaScript To-Do App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header Section -->
+    <header class="app-header">
+      <div class="header-icon">✓</div>
+      <div>
+        <h1 class="app-title">TaskFlow</h1>
+        <p class="app-subtitle">Interactive state management with LocalStorage</p>
+      </div>
+    </header>
+
+    <!-- Main Card -->
+    <main class="todo-card">
+      <!-- Input Section (Create) -->
+      <form id="todo-form" class="todo-form">
+        <input 
+          type="text" 
+          id="todo-input" 
+          class="todo-input" 
+          placeholder="What needs to be done? Press Enter to add..." 
+          autocomplete="off" 
+          autofocus 
+        />
+        <button type="submit" class="btn btn-primary" id="add-btn">
+          <span>Add Task</span>
+        </button>
+      </form>
+
+      <!-- Toolbar: Filters and Search -->
+      <div class="toolbar">
+        <div class="filter-group" role="tablist" aria-label="Task status filters">
+          <button type="button" class="filter-btn active" data-filter="all">All</button>
+          <button type="button" class="filter-btn" data-filter="active">Active</button>
+          <button type="button" class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <div class="search-box">
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Search tasks..." 
+            autocomplete="off"
+          />
+        </div>
+      </div>
+
+      <!-- Task Stats Bar -->
+      <div class="task-stats">
+        <span id="items-left">0 items left</span>
+        <div class="stats-actions">
+          <button type="button" id="clear-completed" class="btn-text">Clear Completed</button>
+        </div>
+      </div>
+
+      <!-- Todo List Container (Read, Update, Delete) -->
+      <ul id="todo-list" class="todo-list" aria-live="polite">
+        <!-- Dynamic DOM tasks rendered here -->
+      </ul>
+
+      <!-- Empty State View -->
+      <div id="empty-state" class="empty-state hidden">
+        <div class="empty-icon">📝</div>
+        <p class="empty-title">No tasks found</p>
+        <p class="empty-desc">Add a new task above or adjust your filter.</p>
+      </div>
+    </main>
+
+    <!-- Footer Instructions / Info -->
+    <footer class="app-footer">
+      <p>Tip: Double-click a task title to edit directly. Press Enter or click outside to save.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
